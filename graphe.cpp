@@ -10,7 +10,8 @@ Graphe::~Graphe()
 }
 void Graphe::affiche()
 {
-
+    for(auto *a: *sesSommets)
+        std::cout << a->getNom();
 }
 void Graphe::colorer()
 {

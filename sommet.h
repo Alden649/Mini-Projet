@@ -17,6 +17,7 @@ public:
     void getNbSuccesseur();
     void setCouleur(std::string couleur);
     void setCode(std::string code);
+    std::string getNom();
 };
 
 #endif // SOMMET_H
