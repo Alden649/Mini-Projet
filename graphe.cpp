@@ -11,7 +11,7 @@ Graphe::~Graphe()
 void Graphe::affiche()
 {
     for(auto *a: *sesSommets)
-        std::cout << a->getNom();
+        std::cout << "Sommet :" << a->getNom()<< "\nCode: " << a->getCode() << "\nCouleur :" << a-> getCouleur() << "\n ======== \n";
 }
 void Graphe::colorer()
 {
@@ -26,17 +26,25 @@ void Graphe::peuplerGraphe(std::string leFichier)
     for(QDomNode leFils = leSvg.firstChild();!leFils.isNull();leFils = leFils.nextSibling())
     {
         //parcour du document SVG
-        std::cout << leFils.nodeName().toStdString() << ' ';
         QDomNamedNodeMap lesAttributs = leFils.attributes();
-        QDomNode leAttributRechercher = lesAttributs.namedItem(QString("id"));
 
         // création du sommet
-        Sommet *unSommet = new Sommet(leAttributRechercher.nodeName().toStdString());
-        leAttributRechercher = lesAttributs.namedItem(QString("d"));
+        QDomNode leAttributRechercher = lesAttributs.namedItem(QString("id"));
+        Sommet *unSommet = new Sommet(leAttributRechercher.nodeValue().toStdString());
 
         // récupération du code
+        leAttributRechercher = lesAttributs.namedItem(QString("d"));
         std::string leCode = leAttributRechercher.nodeValue().toStdString();
         unSommet->setCode(leCode);
+
+        //ajout du sommet dans le graphe
         this->sesSommets->push_back(unSommet);
+    }
+}
+void Graphe::determinerSuccesseurs()
+{
+    for(auto *a : *sesSommets)
+    {
+
     }
 }

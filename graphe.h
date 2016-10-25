@@ -18,6 +18,7 @@ public:
     void affiche();
     void colorer();
     void peuplerGraphe(std::string leFichier);
+    void determinerSuccesseurs();
 };
 
 #endif // GRAPHE_H

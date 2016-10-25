@@ -2,6 +2,7 @@
 #define SOMMET_H
 #include <iostream>
 #include <list>
+#include <Set>
 
 class Sommet
 {
@@ -18,6 +19,9 @@ public:
     void setCouleur(std::string couleur);
     void setCode(std::string code);
     std::string getNom();
+    std::string getCode();
+    std::string getCouleur();
+    std::set<std::string> *getPoints();
 };
 
 #endif // SOMMET_H
