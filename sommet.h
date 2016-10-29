@@ -2,7 +2,8 @@
 #define SOMMET_H
 #include <iostream>
 #include <list>
-#include <Set>
+#include <Vector>
+#include <algorithm>
 
 class Sommet
 {
@@ -14,14 +15,16 @@ public:
 
     Sommet(std::string sonNom);
     ~Sommet();
-    void ajouterSommet(Sommet *sommet);
-    void getNbSuccesseur();
+    void ajouterSuccesseur(Sommet *sommet);
     void setCouleur(std::string couleur);
     void setCode(std::string code);
+    int getNbSuccesseur();
+    bool estSuccesseur(Sommet *unSommet);
     std::string getNom();
     std::string getCode();
     std::string getCouleur();
-    std::set<std::string> *getPoints();
+    std::vector<std::string> *getPoints();
+    std::list<Sommet*> *getSuccesseurs();
 };
 
 #endif // SOMMET_H
